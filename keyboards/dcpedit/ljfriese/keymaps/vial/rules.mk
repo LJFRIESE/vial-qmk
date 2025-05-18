@@ -3,7 +3,7 @@ VIAL_ENABLE = yes
 VIAL_INSECURE = yes
 
 CONSOLE_ENABLE = no
-# ENCODER_MAP_ENABLE = yes
+ENCODER_MAP_ENABLE = yes
 
 QMK_SETTINGS = yes
 
@@ -21,7 +21,7 @@ AUDIO_ENABLE = no
 
 SRC += custom_keycodes.c
 SRC += capsword.c
-SRC += _keymap.c
+# SRC += _keymap.c
 # SRC += led.c
 
 # note that the order is important here

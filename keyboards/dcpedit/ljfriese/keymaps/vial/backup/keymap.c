@@ -24,7 +24,6 @@ void matrix_scan_user(void) {
     }
 
     process_leds();
-
 }
 
 // layer_state_t layer_state_set_user(layer_state_t state) {
@@ -53,16 +52,11 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 //
 //
 //
-// #if defined(ENCODER_MAP_ENABLE)
-// const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
-//     [0] =   { ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN)  },
-//     [1] =   { ENCODER_CCW_CW(RGB_HUD, RGB_HUI)  },
-//     [2] =   { ENCODER_CCW_CW(RGB_VAD, RGB_VAI)  },
-//     [3] =   { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
-//     [4] =   { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
-//     [5] =   { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
-//     [6] =   { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
-//     [7] =   { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) },
-//     [8] =   { ENCODER_CCW_CW(RGB_RMOD, RGB_MOD) }
-// };
-// #endif
+#if defined(ENCODER_MAP_ENABLE)
+#define NUM_LAYERS 6
+#define ENCODER_DEFAULT ENCODER_CCW_CW(KC_MS_WH_UP, KC_MS_WH_DOWN)
+
+const uint16_t PROGMEM encoder_map[NUM_LAYERS][NUM_ENCODERS][2] = {
+    [0 ... (NUM_LAYERS - 1)] = { ENCODER_DEFAULT },
+};
+#endif
