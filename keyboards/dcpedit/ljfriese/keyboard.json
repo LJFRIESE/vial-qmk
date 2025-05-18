@@ -10,7 +10,8 @@
         "audio": true,
         "bootmagic": true,
         "extrakey": true,
-        "mousekey": true
+        "mousekey": true,
+        "encoder": true
     },
     "url": "https://github.com/dcpedit/pillzmod",
     "usb": {
@@ -30,6 +31,11 @@
         "cols": ["A5", "C14", "C15", "A7", "B1", "A6", "B3"],
         "rows": ["B5", "B6", "B7", "B8", "B4", "A3", "A15", "B15", "A8", "B13", "B12", "B14", "A4", "B10", "B0"]
     },
+  "encoder": {
+    "rotary": [
+      { "pin_a": "A14", "pin_b": "A13", "resolution": 4 }
+    ]
+  },
     "processor": "STM32F411",
     "layouts": {
         "LAYOUT": {
@@ -119,10 +125,7 @@
                 {"label": "2,5", "matrix": [2, 5], "x": 7.75, "y": 10},
                 {"label": "6,6", "matrix": [6, 6], "x": 9.25, "y": 10},
                 {"label": "7,5", "matrix": [7, 5], "x": 10.25, "y": 10},
-                {"label": "6,5", "matrix": [6, 5], "x": 11.25, "y": 10},
-                {"label": "0,6", "matrix": [0, 6], "x": 0, "y": 11},
-                {"label": "1,6", "matrix": [1, 6], "x": 1, "y": 11},
-                {"label": "2,6", "matrix": [2, 6], "x": 2, "y": 11}
+                {"label": "6,5", "matrix": [6, 5], "x": 11.25, "y": 10}
             ]
         }
     }
