@@ -1,0 +1,585 @@
+{
+    "version": 1,
+    "uid": 9123507183757309501,
+    "layout": [
+        [
+            ["KC_EQUAL", "KC_TAB", "TD(0)", "KC_LSHIFT", -1, -1, -1],
+            ["KC_1", "KC_Q", "KC_A", "KC_Z", "KC_HOME", -1, -1],
+            ["KC_2", "KC_W", "KC_R", "KC_X", "KC_PGDOWN", "MO(4)", -1],
+            [
+                "KC_3",
+                "KC_F",
+                "KC_S",
+                "KC_C",
+                "KC_PGUP",
+                "OSM(MOD_MEH)",
+                "KC_BSPACE"
+            ],
+            ["KC_4", "KC_P", "KC_T", "KC_D", -1, -1, "KC_DELETE"],
+            ["KC_5", "KC_B", "KC_G", "KC_V", "KC_END", "OSL(1)", "KC_LCTRL"],
+            ["KC_6", "KC_J", "KC_M", "KC_K", "KC_LEFT", "KC_SPACE", "MO(4)"],
+            ["KC_7", "KC_L", "KC_N", "KC_H", -1, "KC_ENTER", -1],
+            [
+                "KC_8",
+                "KC_U",
+                "KC_E",
+                "KC_COMMA",
+                "KC_DOWN",
+                "KC_LCTRL",
+                "OSM(MOD_HYPR)"
+            ],
+            ["KC_9", "KC_Y", "KC_I", "KC_DOT", "KC_UP", -1, "OSL(1)"],
+            ["KC_0", "KC_SCOLON", "KC_O", "LSFT(KC_SLASH)", "KC_RIGHT", -1, -1],
+            ["KC_MINUS", "KC_BSLASH", "KC_QUOTE", "KC_RSHIFT", -1, -1, -1],
+            ["USER00", "KC_F3", "KC_F6", "KC_F9", "KC_F12", "DYN_REC_STOP", -1],
+            ["KC_F1", "KC_F4", "KC_F7", "KC_F10", "KC_PSCREEN", "TO(0)", -1],
+            [
+                "KC_F2",
+                "KC_F5",
+                "KC_F8",
+                "KC_F11",
+                "DYN_REC_START1",
+                "DYN_MACRO_PLAY1",
+                -1
+            ]
+        ],
+        [
+            ["KC_NO", "KC_NO", "KC_TRNS", "KC_NO", -1, -1, -1],
+            [
+                "KC_NO",
+                "KC_NO",
+                "LSFT(KC_SCOLON)",
+                "KC_NO",
+                "KC_NO",
+                -1,
+                -1
+            ],
+            [
+                "KC_NO",
+                "LSFT(KC_BSLASH)",
+                "LSFT_T(KC_GRAVE)",
+                "LSFT(KC_5)",
+                "KC_NO",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_NO",
+                "LSFT(KC_7)",
+                "KC_EQUAL",
+                "LSFT(KC_EQUAL)",
+                "KC_NO",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            [
+                "KC_NO",
+                "LSFT(KC_3)",
+                "LSFT(KC_1)",
+                "LSFT_T(KC_8)",
+                -1,
+                -1,
+                "KC_TRNS"
+            ],
+            [
+                "KC_NO",
+                "KC_NO",
+                "KC_NO",
+                "KC_NO",
+                "LSFT(KC_6)",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            [
+                "KC_NO",
+                "KC_NO",
+                "KC_NO",
+                "KC_NO",
+                "KC_NO",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            [
+                "KC_NO",
+                "KC_LBRACKET",
+                "LSFT(KC_9)",
+                "LSFT(KC_LBRACKET)",
+                -1,
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_NO",
+                "KC_RBRACKET",
+                "LSFT(KC_0)",
+                "LSFT(KC_RBRACKET)",
+                "KC_NO",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            [
+                "KC_NO",
+                "LSFT(KC_MINUS)",
+                "KC_MINUS",
+                "LSFT(KC_2)",
+                "KC_NO",
+                -1,
+                "KC_TRNS"
+            ],
+            [
+                "KC_NO",
+                "KC_NO",
+                "KC_SCOLON",
+                "LSFT(KC_5)",
+                "KC_NO",
+                -1,
+                -1
+            ],
+            ["KC_NO", "KC_NO", "KC_NO", "KC_NO", -1, -1, -1],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ]
+        ],
+        [
+            ["KC_NO", "KC_NO", "KC_TRNS", "KC_NO", -1, -1, -1],
+            ["KC_NO", "KC_NO", "KC_LGUI", "KC_MPRV", "KC_NO", -1, -1],
+            [
+                "KC_NO",
+                "KC_NO",
+                "OSM(MOD_LALT)",
+                "KC_VOLD",
+                "KC_MSTP",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_NO",
+                "KC_NO",
+                "OSM(MOD_LSFT)",
+                "KC_VOLU",
+                "KC_MPLY",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            ["KC_NO", "KC_NO", "OSM(MOD_LCTL)", "KC_MNXT", -1, -1, "KC_TRNS"],
+            ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_TRNS", "KC_TRNS"],
+            ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_TRNS", "KC_TRNS"],
+            ["KC_NO", "KC_SLEP", "KC_RCTRL", "KC_WBAK", -1, "KC_TRNS", -1],
+            [
+                "KC_NO",
+                "KC_NO",
+                "KC_RSHIFT",
+                "KC_WSTP",
+                "KC_NO",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            ["KC_NO", "KC_NO", "KC_RALT", "KC_WREF", "KC_NO", -1, "KC_TRNS"],
+            ["KC_NO", "KC_NO", "KC_RGUI", "KC_WFWD", "KC_NO", -1, -1],
+            ["KC_NO", "KC_NO", "KC_NO", "KC_NO", -1, -1, -1],
+            [
+                "0x7c01",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "RESET",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ]
+        ],
+        [
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, -1, -1],
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, -1],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, -1, "KC_TRNS"],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, "KC_TRNS", -1],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS"
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1,
+                "KC_TRNS"
+            ],
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, -1],
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, -1, -1],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ]
+        ],
+        [
+            ["KC_NO", "KC_NO", "KC_TRNS", "KC_NO", -1, -1, -1],
+            ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_MS_L", -1, -1],
+            ["KC_NO", "KC_F7", "KC_F4", "KC_F1", "KC_MS_D", "KC_TRNS", -1],
+            [
+                "KC_NO",
+                "KC_F8",
+                "KC_F5",
+                "KC_F2",
+                "KC_MS_U",
+                "KC_TRNS",
+                "KC_BTN1"
+            ],
+            ["KC_NO", "KC_F9", "KC_F6", "KC_F3", -1, -1, "KC_BTN2"],
+            ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_MS_R", "KC_NO", "KC_NO"],
+            [
+                "KC_NO",
+                "KC_NO",
+                "KC_NO",
+                "KC_NO",
+                "KC_TRNS",
+                "KC_KP_0",
+                "KC_TRNS"
+            ],
+            ["KC_NO", "KC_7", "KC_4", "KC_1", -1, "KC_TRNS", -1],
+            ["KC_NO", "KC_8", "KC_5", "KC_2", "KC_TRNS", "KC_NO", "KC_TRNS"],
+            ["KC_NO", "KC_9", "KC_6", "KC_3", "KC_TRNS", -1, "KC_NO"],
+            [
+                "KC_NO",
+                "KC_MINUS",
+                "LSFT(KC_EQUAL)",
+                "KC_BSPACE",
+                "KC_TRNS",
+                -1,
+                -1
+            ],
+            ["KC_NO", "KC_NO", "KC_NO", "KC_NO", -1, -1, -1],
+            [
+                "0x7c01",
+                "KC_TRNS",
+                "KC_TRNS",
+                "AU_TOG",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "RESET",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ]
+        ],
+        [
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, -1, -1],
+            ["KC_TRNS", "KC_Q", "KC_A", "KC_Z", "KC_GRAVE", -1, -1],
+            ["KC_TRNS", "KC_W", "KC_S", "KC_X", "KC_BSLASH", "KC_END", -1],
+            [
+                "KC_TRNS",
+                "KC_E",
+                "KC_D",
+                "KC_C",
+                "KC_LBRACKET",
+                "KC_HOME",
+                "KC_TRNS"
+            ],
+            ["KC_TRNS", "KC_R", "KC_F", "KC_V", -1, -1, "KC_TRNS"],
+            [
+                "KC_TRNS",
+                "KC_T",
+                "KC_G",
+                "KC_B",
+                "KC_RBRACKET",
+                "KC_LALT",
+                "KC_LCTRL"
+            ],
+            [
+                "KC_TRNS",
+                "KC_Y",
+                "KC_H",
+                "KC_N",
+                "KC_LEFT",
+                "KC_TRNS",
+                "KC_PGDOWN"
+            ],
+            ["KC_TRNS", "KC_U", "KC_J", "KC_M", -1, "KC_TRNS", -1],
+            [
+                "KC_TRNS",
+                "KC_I",
+                "KC_K",
+                "KC_COMMA",
+                "KC_DOWN",
+                "KC_RCTRL",
+                "KC_PGUP"
+            ],
+            ["KC_TRNS", "KC_O", "KC_L", "KC_DOT", "KC_UP", -1, "KC_RGUI"],
+            ["KC_TRNS", "KC_P", "KC_TRNS", "KC_TRNS", "KC_RIGHT", -1, -1],
+            ["KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", -1, -1, -1],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ],
+            [
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                "KC_TRNS",
+                -1
+            ]
+        ]
+    ],
+    "encoder_layout": [[], [], [], [], [], []],
+    "layout_options": -1,
+    "macro": [
+        [
+            ["tap", "KC_HOME"],
+            ["down", "KC_RSHIFT"],
+            ["tap", "KC_END"],
+            ["up", "KC_RSHIFT"],
+            ["tap", "KC_DELETE"]
+        ],
+        [
+            ["down", "KC_RSHIFT"],
+            ["tap", "KC_END"],
+            ["up", "KC_RSHIFT"],
+            ["tap", "KC_DELETE"]
+        ],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ],
+    "vial_protocol": 6,
+    "via_protocol": 9,
+    "tap_dance": [
+        ["KC_ESCAPE", "KC_CAPSLOCK", "KC_CAPSLOCK", "KC_NO", 200],
+        ["M1", "KC_NO", "M0", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", 200]
+    ],
+    "combo": [
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_LSHIFT", "KC_BSPACE", "KC_NO", "KC_NO", "KC_DELETE"],
+        ["KC_LSHIFT", "KC_SPACE", "KC_NO", "KC_NO", "KC_TAB"],
+        ["KC_BSPACE", "KC_SPACE", "KC_NO", "KC_NO", "USER03"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"],
+        ["KC_NO", "KC_NO", "KC_NO", "KC_NO", "KC_NO"]
+    ],
+    "key_override": [],
+    "settings": {
+        "1": 0,
+        "2": 100,
+        "3": 0,
+        "4": 175,
+        "5": 2,
+        "6": 5000,
+        "7": 150,
+        "8": 1,
+        "9": 10,
+        "10": 20,
+        "11": 4,
+        "12": 10,
+        "13": 30,
+        "14": 10,
+        "15": 80,
+        "16": 8,
+        "17": 40,
+        "18": 0,
+        "19": 80,
+        "20": 2,
+        "21": 0
+    }
+}

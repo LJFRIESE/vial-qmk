@@ -1,12 +1,12 @@
 #include <stdint.h>
+#include "keycodes.h"
 #include "qmk-vim/src/vim.h"
 #include "quantum.h"
 
 enum custom_keycodes {
     TOG_VIM = QK_KB_0,
     OS_VIM,
-    S_PLAY,
-    LED_FLASH,
+    RESET_LOCKS,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -24,6 +24,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case OS_VIM:
             if (record->event.pressed) {
                 start_oneshot_vim();
+            }
+            return false;
+        case RESET_LOCKS:
+            if (record->event.pressed) {
+                // Turn off Caps Lock
+                if (host_keyboard_led_state().caps_lock) {
+                    tap_code(KC_CAPS);
+                }
+                // Turn off Num Lock
+                if (host_keyboard_led_state().num_lock) {
+                    tap_code(KC_N);
+                }
+                // Turn off Scroll Lock
+                if (host_keyboard_led_state().scroll_lock) {
+                    tap_code(KC_SCROLL_LOCK);
+                }
             }
             return false;
         default:
