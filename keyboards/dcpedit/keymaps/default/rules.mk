@@ -21,6 +21,7 @@ AUDIO_ENABLE = no
 
 SRC += custom_keycodes.c
 SRC += capsword.c
+SRC += tapping.c
 
 # note that the order is important here
 SRC += qmk-vim/src/process_func.c
