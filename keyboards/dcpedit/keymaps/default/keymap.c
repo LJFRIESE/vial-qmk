@@ -5,46 +5,52 @@
 #include "led.c"
 #include "tapping.h"
 
+enum {
+    ESC_CAPS = 0,
+    SHFT_SPC,
+};
+
 const tap_dance_config_t tap_dance_configs[] = {
     // index        tap         hold        double_tap      tap_hold        tapping_term
-    { TD_ESC_CAPS   ,KC_ESC     ,KC_NO      ,KC_CAPS        ,KC_NO,         TAPPING_TERM },
+    { ESC_CAPS      ,KC_ESC     ,KC_CAPS    ,KC_CAPS        ,KC_NO,         TAPPING_TERM },
+    { SHFT_SPC      ,KC_SPC     ,KC_LSFT    ,KC_NO          ,KC_NO,         TAPPING_TERM },
 };
 
 const size_t num_tap_dance_configs = sizeof(tap_dance_configs) / sizeof(tap_dance_configs[0]);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-      KC_CAPS    ,KC_F1      ,KC_F2      ,KC_F3      ,KC_F4      ,KC_F5     ,KC_F6      ,KC_F7      ,KC_F8      ,KC_F9      ,KC_F10     ,KC_F11     ,KC_F12     ,KC_PSCR    ,KC_SCRL    ,KC_PAUS    ,TG(1)     ,MO(1),
-      KC_EQL     ,KC_1       ,KC_2       ,KC_3       ,KC_4       ,KC_5                                                      ,KC_6       ,KC_7       ,KC_8       ,KC_9       ,KC_0       ,KC_MINS,
-      KC_TAB     ,KC_Q       ,KC_W       ,KC_F       ,KC_P       ,KC_B                                                      ,KC_J       ,KC_L       ,KC_U       ,KC_Y       ,KC_SCLN    ,KC_BSLS,
-      KC_ESC     ,KC_A       ,KC_R       ,KC_S       ,KC_T       ,KC_G                                                      ,KC_M       ,KC_N       ,KC_E       ,KC_I       ,KC_O       ,KC_QUOT,
-      KC_LSFT    ,KC_Z       ,KC_X       ,KC_C       ,KC_D       ,KC_V                                                      ,KC_K       ,KC_H       ,KC_COMM    ,KC_DOT     ,KC_SLSH    ,KC_RSFT,
-                  KC_HOME   ,KC_PGUP     ,KC_PGDN    ,KC_END                                                                           ,KC_LEFT    ,KC_DOWN    ,KC_UP      ,KC_RGHT,
-                                                                  MO(1)     ,MO(4)                              ,MO(2)      ,MO(1)
-                                                                            ,KC_HYPR                            ,KC_HYPR
-                                                     ,KC_BSPC     ,KC_DEL   ,KC_MEH                             ,KC_MEH      ,KC_ENTER   ,KC_SPC
+KC_CAPS     ,KC_F1      ,KC_F2      ,KC_F3      ,KC_F4      ,KC_F5      ,KC_F6      ,KC_F7       ,KC_F8     ,KC_F9      ,KC_F10     ,KC_F11     ,KC_F12     ,KC_PSCR    ,KC_SCRL    ,KC_PAUS    ,TG(1)     ,MO(1),
+KC_EQL      ,KC_1       ,KC_2       ,KC_3       ,KC_4       ,KC_5                                                       ,KC_6       ,KC_7       ,KC_8       ,KC_9       ,KC_0       ,KC_MINS,
+KC_TAB      ,KC_Q       ,KC_W       ,KC_F       ,KC_P       ,KC_B                                                       ,KC_J       ,KC_L       ,KC_U       ,KC_Y       ,KC_SCLN    ,KC_BSLS,
+TD(ESC_CAPS),KC_A       ,KC_R       ,KC_S       ,KC_T       ,KC_G                                                       ,KC_M       ,KC_N       ,KC_E       ,KC_I       ,KC_O       ,KC_QUOT,
+KC_LSFT     ,KC_Z       ,KC_X       ,KC_C       ,KC_D       ,KC_V                                                       ,KC_K       ,KC_H       ,KC_COMM    ,KC_DOT     ,KC_SLSH    ,KC_RSFT,
+             KC_HOME    ,KC_PGDN    ,KC_PGUP    ,KC_END                                                                             ,KC_LEFT    ,KC_DOWN    ,KC_UP      ,KC_RGHT
+                                                            ,KC_RCTL    ,MO(2)                              ,MO(1)      ,KC_RCTL
+                                                                        ,KC_LALT                            ,KC_RALT
+                                                ,KC_BSPC    ,KC_DEL     ,OSM(KC_MEH)                            ,OSM(KC_MEH)     ,KC_ENTER   ,KC_SPC
     ),
     [1] = LAYOUT(
-      _______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
-      _______    ,_______    ,_______    ,_______    ,_______    ,_______                                                    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
-      _______    ,_______    ,_______    ,_______    ,_______    ,_______                                                    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
-      _______    ,KC_LGUI    ,KC_LALT    ,KC_RSFT    ,KC_LCTL    ,_______                                                    ,_______    ,KC_RSFT    ,KC_RCTL   ,KC_LALT    ,KC_RGUI    ,_______,
-      _______    ,_______    ,_______    ,_______    ,_______    ,_______                                                    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
-                  _______    ,_______    ,_______    ,_______                                                                            ,_______    ,_______    ,_______    ,_______
-                                                                 ,_______   ,_______                            ,_______    ,_______
-                                                                            ,_______                            ,_______
-                                                     ,_______    ,_______   ,_______                            ,_______    ,_______    ,_______
+QK_RBT     ,QK_BOOT    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
+_______    ,_______     ,_______         ,_______           ,_______        ,_______                                                    ,_______    ,_______        ,_______        ,_______        ,_______        ,_______,
+_______    ,KC_SLSH     ,LSFT(KC_8)      ,KC_MINS           ,LSFT(KC_EQL)   ,_______                                                    ,_______    ,KC_LBRC        ,KC_RBRC        ,KC_MINS        ,LSFT(KC_MINS)  ,_______,
+_______    ,KC_EQL      ,LSFT(KC_4)      ,LSFT(KC_5)        ,LSFT(KC_6)     ,_______                                                    ,_______    ,LSFT(KC_9)     ,LSFT(KC_0)     ,KC_SCLN        ,LSFT(KC_SCLN)  ,_______,
+_______    ,_______     ,LSFT(KC_1)      ,LSFT(KC_2)        ,LSFT(KC_3)     ,_______                                                    ,_______    ,LSFT(KC_LBRC)  ,LSFT(KC_RBRC)  ,KC_QUOT        ,LSFT(KC_QUOT)  ,_______,
+            _______     ,_______         ,_______           ,_______                                                                                ,_______        ,_______        ,_______        ,_______
+                                                                            ,_______   ,_______                            ,_______    ,_______
+                                                                                       ,_______                            ,_______
+                                                                ,_______    ,_______   ,_______                            ,_______    ,_______    ,_______
     ),
     [2] = LAYOUT(
-      _______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
-      _______    ,KC_NO             ,KC_NO            ,KC_NO          ,KC_NO          ,_______                                                  ,_______    ,KC_NO            ,LSFT(KC_MINUS)  ,KC_NO        ,KC_NO       ,_______,
-      _______    ,KC_NO             ,LSFT(KC_BSLS)    ,LSFT(KC_7)     ,LSFT(KC_3)     ,_______                                                    ,_______    ,KC_LBRC          ,KC_RBRC         ,KC_MINUS     ,KC_NO     ,_______,
-      _______    ,LSFT(KC_SCLN)     ,LSFT_T(KC_GRAVE) ,KC_EQUAL       ,LSFT(KC_1)     ,_______                                                    ,_______    ,LSFT(KC_9)       ,LSFT(KC_0)      ,LSFT(KC_2)   ,KC_SCLN ,_______,
-      _______    ,KC_NO             ,LSFT(KC_5)       ,LSFT(KC_EQUAL) ,LSFT_T(KC_8)   ,_______                                                    ,_______    ,LSFT(KC_LBRC)    ,LSFT(KC_RBRC)   ,KC_NO        ,LSFT(KC_5),_______,
-                  KC_NO             ,KC_NO            ,KC_NO          ,LSFT(KC_6)                                                                            ,_______    ,_______    ,_______    ,_______
-                                                                 ,_______   ,_______                            ,_______    ,_______
-                                                                            ,_______                            ,_______
-                                                     ,_______    ,_______   ,_______                            ,_______    ,_______    ,_______
+QK_RBT     ,QK_BOOT    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
+_______    ,_______    ,KC_F10     ,KC_F11     ,KC_F12     ,_______                                                    ,_______    ,_______     ,_______    ,_______    ,_______    ,_______,
+_______    ,_______    ,KC_F7      ,KC_F8      ,KC_F9      ,_______                                                    ,_______    ,KC_7      ,KC_8      ,KC_9      ,_______    ,_______,
+_______    ,_______    ,KC_F4      ,KC_F5      ,KC_F6      ,_______                                                    ,_______    ,KC_4      ,KC_5      ,KC_6      ,_______    ,_______,
+_______    ,_______    ,KC_F1      ,KC_F2      ,KC_F3      ,_______                                                    ,_______    ,KC_1      ,KC_2      ,KC_3      ,KC_ENTER    ,_______,
+            _______    ,_______    ,_______    ,_______                                                                            ,_______    ,_______    ,_______    ,_______
+                                                         ,_______   ,_______                            ,_______    ,_______
+                                                                    ,_______                            ,_______
+                                             ,_______    ,_______   ,_______                            ,_______    ,_______    ,KC_0
     ),
     [3] = LAYOUT(
       KC_CAPS    ,KC_F1      ,KC_F2      ,KC_F3      ,KC_F4      ,KC_F5     ,KC_F6      ,KC_F7      ,KC_F8      ,KC_F9      ,KC_F10     ,KC_F11     ,KC_F12     ,KC_PSCR    ,KC_SCRL    ,KC_PAUS    ,TG(1)     ,MO(1),
@@ -69,15 +75,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                      ,_______    ,_______   ,_______                            ,_______    ,_______    ,KC_P0
     ),
     [5] = LAYOUT(
-      KC_ESC     ,KC_F1      ,KC_F2      ,KC_F3      ,KC_F4      ,KC_F5      ,KC_F6      ,KC_F7      ,KC_F8      ,KC_F9     ,KC_F10     ,KC_F11     ,KC_F12     ,KC_PSCR    ,KC_SCRL    ,KC_PAUS    ,TG(1)      ,MO(1),
-      KC_EQL     ,KC_1       ,KC_2       ,KC_3       ,KC_4       ,KC_5                                                      ,KC_6       ,KC_7       ,KC_8       ,KC_9       ,KC_0       ,KC_MINS,
-      KC_TAB     ,KC_Q       ,KC_W       ,KC_E       ,KC_R       ,KC_T                                                      ,KC_Y       ,KC_U       ,KC_I       ,KC_O       ,KC_P       ,KC_BSLS,
-      KC_CAPS    ,KC_A       ,KC_S       ,KC_D       ,KC_F       ,KC_G                                                      ,KC_H       ,KC_J       ,KC_K       ,KC_L       ,KC_SCLN    ,KC_QUOT,
-      KC_LSFT    ,KC_Z       ,KC_X       ,KC_C       ,KC_V       ,KC_B                                                      ,KC_N       ,KC_M       ,KC_COMM    ,KC_DOT     ,KC_SLSH    ,KC_RSFT,
-                  KC_GRV     ,KC_INS     ,KC_LBRC    ,KC_RBRC                                                                           ,KC_UP      ,KC_DOWN    ,KC_LEFT    ,KC_RGHT
-                                                                ,KC_LCTL    ,KC_LALT                            ,KC_RGUI    ,KC_RCTL
-                                                                            ,KC_HOME                            ,KC_PGUP
-                                                    ,KC_BSPC    ,KC_DEL     ,KC_END                             ,KC_PGDN    ,KC_ENTER   ,KC_SPC
+KC_ESC     ,KC_F1       ,KC_F2      ,KC_F3      ,KC_F4      ,KC_F5      ,KC_F6      ,KC_F7      ,KC_F8      ,KC_F9      ,KC_F10     ,KC_F11     ,KC_F12     ,KC_PSCR    ,KC_SCRL    ,KC_PAUS    ,TG(1)      ,MO(1),
+KC_EQL     ,KC_1        ,KC_2       ,KC_3       ,KC_4       ,KC_5                                                       ,KC_6       ,KC_7       ,KC_8       ,KC_9       ,KC_0       ,KC_MINS,
+KC_TAB     ,KC_Q        ,KC_W       ,KC_E       ,KC_R       ,KC_T                                                       ,KC_Y       ,KC_U       ,KC_I       ,KC_O       ,KC_P       ,KC_BSLS,
+KC_CAPS    ,KC_A        ,KC_S       ,KC_D       ,KC_F       ,KC_G                                                       ,KC_H       ,KC_J       ,KC_K       ,KC_L       ,KC_SCLN    ,KC_QUOT,
+KC_LSFT    ,KC_Z        ,KC_X       ,KC_C       ,KC_V       ,KC_B                                                       ,KC_N       ,KC_M       ,KC_COMM    ,KC_DOT     ,KC_SLSH    ,KC_RSFT,
+            KC_GRV      ,KC_INS     ,KC_LBRC    ,KC_RBRC                                                                ,KC_UP      ,KC_DOWN    ,KC_LEFT    ,KC_RGHT
+                                                            ,KC_LCTL    ,KC_LALT                            ,KC_RGUI    ,KC_RCTL
+                                                                        ,KC_HOME                            ,KC_PGUP
+                                                ,KC_BSPC    ,KC_DEL     ,KC_END                             ,KC_PGDN    ,KC_ENTER   ,KC_SPC
    )
 };
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
