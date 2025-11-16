@@ -1,18 +1,4 @@
 {
-    "customKeycodes": [
-        {"name": "T_VIM",
-        "title": "Toggle VIM",
-        "shortName": "Toggle\nVIM"
-        },
-        {"name": "OS_VIM",
-        "title": "Start Oneshot VIM",
-        "shortName": "Oneshot\nVIM"
-        },
-        {"name": "RESET_LOCKS",
-        "title": "RESET_LOCKS",
-        "shortName": "Reset\nLocks"
-        }
-    ],
     "matrix": {
         "rows": 15,
         "cols": 7

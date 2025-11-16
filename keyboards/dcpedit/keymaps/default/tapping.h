@@ -1,6 +1,5 @@
 // tap_dance_config.h
 #pragma once
-#include "quantum.h"
 
 typedef struct {
     uint8_t index;

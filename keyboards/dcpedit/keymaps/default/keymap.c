@@ -108,26 +108,29 @@ void matrix_init_user(void) {
 }
 
 
-static bool col_active = false;
+// static bool col_active = false;
 
 void matrix_scan_user(void) {
     // Check if any key in columns 1, 2, or 3 is pressed
-    col_active = false;
-    for (uint8_t row = 1; row < MATRIX_ROWS-1; row++) {
-        // Check columns 1, 2, and 3 (indices 0, 1, and 2)
-        if (matrix_is_on(row, 1) || matrix_is_on(row, 2) || matrix_is_on(row, 3)) {
-            col_active = true;
-            break;
-        }
-    }
+    // col_active = false;
+    // for (uint8_t row = 1; row < MATRIX_ROWS-1; row++) {
+    //     // Check columns 1, 2, and 3 (indices 0, 1, and 2)
+    //     if (matrix_is_on(row, 1) || matrix_is_on(row, 2) || matrix_is_on(row, 3)) {
+    //         col_active = true;
+    //         break;
+    //     }
+    // }
     process_leds();
 }
 
 // Process the matrix state before it's used
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     // If any key in columns 1, 2, or 3 is active and this is a column 0 key, block it
-    if (col_active && record->event.key.col == 0) {
-        return false;
+    if (record->event.key.col == 0) {
+        uint8_t row = record->event.key.row;
+        if (matrix_is_on(row, 1) || matrix_is_on(row, 2) || matrix_is_on(row, 3)) {
+            return false;  // Block this column 0 key
+        }
     }
     return process_record_user(keycode, record);
 }
