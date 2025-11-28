@@ -7,13 +7,13 @@
 
 enum {
     ESC_CAPS = 0,
-    SHFT_SPC,
+    NUM_LYR,
 };
 
 const tap_dance_config_t tap_dance_configs[] = {
     // index        tap         hold        double_tap      tap_hold        tapping_term
-    { ESC_CAPS      ,KC_ESC     ,KC_CAPS    ,KC_CAPS        ,KC_NO,         TAPPING_TERM },
-    { SHFT_SPC      ,KC_SPC     ,KC_LSFT    ,KC_NO          ,KC_NO,         TAPPING_TERM },
+    { ESC_CAPS      ,KC_ESC     ,KC_CAPS    ,KC_CAPS        ,KC_NO          ,TAPPING_TERM },
+    { NUM_LYR     ,TG(2)      ,MO(2)      ,TO(0)          ,MO(3)          ,TAPPING_TERM },
 };
 
 const size_t num_tap_dance_configs = sizeof(tap_dance_configs) / sizeof(tap_dance_configs[0]);
@@ -26,9 +26,9 @@ KC_TAB      ,KC_Q       ,KC_W       ,KC_F       ,KC_P       ,KC_B               
 TD(ESC_CAPS),KC_A       ,KC_R       ,KC_S       ,KC_T       ,KC_G                                                       ,KC_M       ,KC_N       ,KC_E       ,KC_I       ,KC_O       ,KC_QUOT,
 KC_LSFT     ,KC_Z       ,KC_X       ,KC_C       ,KC_D       ,KC_V                                                       ,KC_K       ,KC_H       ,KC_COMM    ,KC_DOT     ,KC_SLSH    ,KC_RSFT,
              KC_HOME    ,KC_PGDN    ,KC_PGUP    ,KC_END                                                                             ,KC_LEFT    ,KC_DOWN    ,KC_UP      ,KC_RGHT
-                                                            ,KC_LCTL   ,KC_LALT                            ,KC_LALT      ,KC_RCTL
-                                                                      ,KC_LGUI                            ,KC_RGUI
-                                                ,KC_BSPC     ,KC_DEL   ,KC_MEH                             ,KC_MEH      ,KC_ENTER   ,KC_SPC
+                                                            ,KC_LCTL   ,MO(3)                              ,TD(NUM_LYR) ,KC_RCTL
+                                                                       ,KC_LGUI                            ,KC_LALT
+                                                ,KC_BSPC     ,KC_DEL   ,KC_MEH                             ,KC_HYPER    ,LT(1, KC_ENTER)   ,KC_SPC
     ),
     [1] = LAYOUT(
             QK_RBT     ,QK_BOOT    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______    ,_______,
