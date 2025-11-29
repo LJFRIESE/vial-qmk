@@ -1,7 +1,6 @@
 #include "tapping.h"
 #include "dynamic_keymap.h"
 #include "vial.h"
-#include QMK_KEYBOARD_H
 
 void initialize_tap_dance(void) {
     vial_tap_dance_entry_t default_td = {
