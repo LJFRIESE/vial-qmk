@@ -107,34 +107,34 @@ void matrix_init_user(void) {
     }
 }
 
-
-// static bool col_active = false;
-
 void matrix_scan_user(void) {
-    // Check if any key in columns 1, 2, or 3 is pressed
-    // col_active = false;
-    // for (uint8_t row = 1; row < MATRIX_ROWS-1; row++) {
-    //     // Check columns 1, 2, and 3 (indices 0, 1, and 2)
-    //     if (matrix_is_on(row, 1) || matrix_is_on(row, 2) || matrix_is_on(row, 3)) {
-    //         col_active = true;
-    //         break;
-    //     }
-    // }
     process_leds();
 }
 
 // Process the matrix state before it's used
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-    // If any key in columns 1, 2, or 3 is active and this is a column 0 key, block it
+    // Only block column 0 when it AND columns 1-3 are both detected in the same row
     if (record->event.key.col == 0) {
         uint8_t row = record->event.key.row;
-        if (matrix_is_on(row, 1) || matrix_is_on(row, 2) || matrix_is_on(row, 3)) {
-            return false;  // Block this column 0 key
+        if (matrix_is_on(row, 0) && (matrix_is_on(row, 1) || matrix_is_on(row, 2) || matrix_is_on(row, 3))) {
+            return false;  // Block this phantom column 0 key press
         }
     }
     return process_record_user(keycode, record);
 }
 
+// // Process the matrix state before it's used
+// bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
+//     // Only block column 0 key presses (not releases) when columns 1-3 are active in the same row
+//     if (record->event.pressed && record->event.key.col == 0) {
+//         uint8_t row = record->event.key.row;
+//         if (matrix_is_on(row, 1) || matrix_is_on(row, 2) || matrix_is_on(row, 3)) {
+//             return false;  // Block this phantom column 0 key press
+//         }
+//     }
+//     return process_record_user(keycode, record);
+// }
+//
 void keyboard_post_init_kb(void) {
     initialize_tap_dance();
 };
@@ -142,11 +142,11 @@ void keyboard_post_init_kb(void) {
 //     return state;  // no flashing logic here anymore
 // }
 
-// void keyboard_post_init_user(void) {
+void keyboard_post_init_user(void) {
 //   // Customise these values to desired behaviour
-//   debug_enable=true;
-//   debug_matrix=true;
-//   debug_keyboard=true;
+  debug_enable=true;
+  debug_matrix=true;
+  debug_keyboard=true;
 //   //debug_mouse=true;
-// }
+}
 
