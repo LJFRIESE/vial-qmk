@@ -17,10 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-/* Use I2C or Serial, not both */
-// #define USE_SERIAL
-// #define USE_I2C
-
 /* Select hand configuration */
 // #define MASTER_LEFT
 // #define MASTER_RIGHT
@@ -30,3 +26,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VIAL_KEYBOARD_UID {0x01, 0x8F, 0xC6, 0xFF, 0xB4, 0x6A, 0x24, 0xF7}
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
+

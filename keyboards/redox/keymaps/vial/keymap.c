@@ -7,8 +7,8 @@
 // entirely and just use numbers.
 #define _BASE 0
 #define _SYMB 1
-#define _NAV 2
-#define _ADJUST 3
+#define _NUM 2
+#define _NAV 3
 
 enum custom_keycodes {
     QWERTY = SAFE_RANGE,
@@ -22,19 +22,20 @@ enum {
 };
 
 // Shortcut to make keymap more readable
-#define MO_NAV   MO(_NAV)
-
-#define LT_SYMB LT(_SYMB, KC_ENT)
-#define KC_NAMI LT(_NAV, KC_MINS)
 
 #define TAP_TAPPING_TERM 260
 void install_tap_dance_entries(void) {
-    vial_tap_dance_entry_t td0 = { KC_ESC, KC_CAPS, KC_NO, KC_NO, TAP_TAPPING_TERM };
-    vial_tap_dance_entry_t td1 = { TG(2), MO(2), TO(0), MO(3), TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td0 = { KC_ESC, KC_NO, KC_CAPS, KC_NO, TAP_TAPPING_TERM };
+    vial_tap_dance_entry_t td1 = { KC_NO, TG(2),  KC_NO, KC_LCTL, TAP_TAPPING_TERM };
     dynamic_keymap_set_tap_dance(0, &td0); // the first value corresponds to the TD(i) slot
     dynamic_keymap_set_tap_dance(1, &td1);
 }
 
+#define NUM_NAV   MO(_NUM)
+
+#define LT_SYMB LT(_SYMB, KC_ENT)
+#define ESC_CAPS TD(0)
+#define TD_NUM TD(_NUM)
 
 void keyboard_post_init_user(void) {
     install_tap_dance_entries();
@@ -42,29 +43,29 @@ void keyboard_post_init_user(void) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [0] = LAYOUT(
-            KC_EQL      ,KC_1       ,KC_2       ,KC_3       ,KC_4       ,KC_5                                                       ,KC_6       ,KC_7       ,KC_8       ,KC_9       ,KC_0       ,KC_MINS,
-            KC_TAB      ,KC_Q       ,KC_W       ,KC_F       ,KC_P       ,KC_B                                                       ,KC_J       ,KC_L       ,KC_U       ,KC_Y       ,KC_SCLN    ,KC_BSLS,
-            TD(0)       ,KC_A       ,KC_R       ,KC_S       ,KC_T       ,KC_G                                                       ,KC_M       ,KC_N       ,KC_E       ,KC_I       ,KC_O       ,KC_QUOT,
-            KC_LSFT     ,KC_Z       ,KC_X       ,KC_C       ,KC_D       ,KC_V   ,KC_LCTL    ,MO_NAV      ,MO_NAV  ,TD(1)            ,KC_K       ,KC_H       ,KC_COMM    ,KC_DOT     ,KC_SLSH    ,KC_RSFT,
-                         KC_HOME    ,KC_PGDN    ,KC_PGUP    ,KC_END                         ,KC_LALT     ,KC_LALT                               ,KC_LEFT    ,KC_DOWN    ,KC_UP      ,KC_RGHT
-                                                                            ,KC_BSPC, KC_DEL,KC_MEH      ,KC_MEH  ,LT_SYMB, KC_SPC
+    [_BASE] = LAYOUT(
+            KC_EQL      ,KC_1          ,KC_2          ,KC_3          ,KC_4       ,KC_5                                                             ,KC_6          ,KC_7       ,KC_8       ,KC_9       ,KC_0       ,KC_MINS,
+            KC_TAB      ,KC_Q          ,KC_W          ,KC_F          ,KC_P       ,KC_B                                                             ,KC_J          ,KC_L       ,KC_U       ,KC_Y       ,KC_SCLN    ,KC_BSLS,
+            ESC_CAPS    ,KC_A          ,KC_R          ,KC_S          ,KC_T       ,KC_G                                                             ,KC_M          ,KC_N       ,KC_E       ,KC_I       ,KC_O       ,KC_QUOT,
+            KC_LSFT     ,KC_Z          ,KC_X          ,KC_C          ,KC_D       ,KC_V         ,KC_LCTL    ,NUM_NAV     ,TD_NUM  ,KC_LCTL          ,KC_K          ,KC_H       ,KC_COMM    ,KC_DOT     ,KC_SLSH    ,KC_RSFT,
+                         KC_HOME       ,KC_PGDN       ,KC_PGUP       ,KC_END                               ,KC_LGUI     ,KC_LALT                                  ,KC_LEFT    ,KC_DOWN    ,KC_UP      ,KC_RGHT
+                                                                                     ,KC_BSPC  ,KC_DEL     ,KC_MEH      ,KC_HYPR ,LT_SYMB ,KC_SPC
             ),
-    [1] = LAYOUT(
+    [_SYMB] = LAYOUT(
             KC_EQL      ,KC_F1         ,KC_F2         ,KC_F3         ,KC_F4         ,KC_F5                                                         ,KC_F6         ,KC_F7      ,KC_F8          ,KC_F9         ,KC_F10     ,KC_F11,
-            _______     ,LSFT(KC_EQL)  ,LSFT(KC_7)    ,LSFT(KC_8)    ,LSFT(KC_GRV)  ,_______                                                       ,_______       ,KC_MINS    ,KC_LBRC        ,KC_RBRC       ,_______    ,_______,
-            _______     ,KC_EQL        ,LSFT(KC_4)    ,LSFT(KC_5)    ,LSFT(KC_6)    ,_______                                                       ,_______       ,KC_UNDS    ,KC_LPRN        ,KC_RPRN       ,_______    ,_______,
-            _______     ,LSFT(KC_GRV)  ,LSFT(KC_1)    ,LSFT(KC_2)    ,LSFT(KC_3)    ,KC_TRNS   ,KC_TRNS    ,KC_TRNS     ,KC_TRNS ,KC_TRNS          ,_______       ,KC_LABK    ,LSFT(KC_LBRC)  ,LSFT(KC_RBRC) ,KC_RABK    ,_______,
-            _______     ,_______       ,_______       ,_______                                             ,KC_TRNS     ,KC_TRNS                                  ,_______    ,_______        ,_______        ,_______
+            KC_TRNS     ,LSFT(KC_EQL)  ,LSFT(KC_7)    ,LSFT(KC_8)    ,KC_GRV        ,KC_TRNS                                                       ,KC_TRNS       ,KC_MINS    ,KC_LBRC        ,KC_RBRC       ,KC_TRNS    ,KC_TRNS,
+            KC_TRNS     ,KC_EQL        ,LSFT(KC_4)    ,LSFT(KC_5)    ,LSFT(KC_6)    ,KC_TRNS                                                       ,KC_TRNS       ,KC_UNDS    ,KC_LPRN        ,KC_RPRN       ,KC_TRNS    ,KC_TRNS,
+            KC_TRNS     ,LSFT(KC_GRV)  ,LSFT(KC_1)    ,LSFT(KC_2)    ,LSFT(KC_3)    ,KC_TRNS   ,KC_TRNS    ,KC_TRNS     ,KC_TRNS ,KC_TRNS          ,KC_TRNS       ,KC_LABK    ,LSFT(KC_LBRC)  ,LSFT(KC_RBRC) ,KC_RABK    ,KC_TRNS,
+            KC_TRNS     ,KC_TRNS       ,KC_TRNS       ,KC_TRNS                                             ,KC_TRNS     ,KC_TRNS                                  ,KC_TRNS    ,KC_TRNS        ,KC_TRNS        ,KC_TRNS
                                                                                      ,KC_TRNS  ,KC_TRNS    ,KC_TRNS     ,KC_TRNS ,KC_TRNS ,KC_TRNS
             ),
-    [2] = LAYOUT(
-            _______     ,_______       ,_______       ,_______       ,_______       ,_______                                                       ,_______       ,_______       ,_______    ,_______    ,_______       ,_______,
-            _______     ,_______       ,_______       ,_______       ,_______       ,_______                                                       ,_______       ,_______       ,KC_7       ,KC_8       ,KC_9          ,_______,
-            _______     ,_______       ,_______       ,_______       ,_______       ,_______                                                       ,_______       ,_______       ,KC_4       ,KC_5       ,KC_6          ,_______,
-            _______     ,_______       ,_______       ,_______       ,_______       ,_______   ,_______    ,_______     ,_______ ,_______          ,_______       ,_______       ,KC_1       ,KC_2       ,KC_3          ,_______,
-                         _______       ,_______       ,_______       ,_______                              ,_______     ,_______                                  ,KC_TRNS       ,KC_TRNS    ,KC_TRNS    ,KC_TRNS
-                                                                                     ,_______  ,_______    ,QK_BOOT     ,QK_BOOT ,KC_TRNS    ,KC_0
+    [_NUM] = LAYOUT(
+            MEH(KC_EQL) ,KC_TRNS       ,KC_TRNS       ,KC_TRNS       ,KC_TRNS       ,KC_TRNS                                                       ,KC_TRNS       ,KC_TRNS       ,KC_TRNS    ,KC_TRNS    ,KC_TRNS       ,KC_TRNS,
+            MEH(KC_TAB) ,MEH(KC_LEFT)  ,MEH(KC_DOWN)  ,MEH(KC_UP)    ,MEH(KC_RIGHT) ,KC_F23                                                        ,KC_TRNS       ,KC_TRNS       ,KC_7       ,KC_8       ,KC_9          ,KC_TRNS,
+            KC_TRNS     ,KC_F13        ,KC_F14        ,KC_F15        ,KC_F16        ,KC_F17                                                        ,KC_TRNS       ,KC_TRNS       ,KC_6       ,KC_5       ,KC_6          ,KC_TRNS,
+            KC_F24      ,KC_F18        ,KC_F19        ,KC_F20        ,KC_F21        ,KC_F22    ,KC_TRNS    ,KC_TRNS     ,KC_TRNS ,KC_TRNS          ,KC_TRNS       ,KC_TRNS       ,KC_1       ,KC_2       ,KC_3          ,KC_TRNS,
+                         MEH(KC_HOME)  ,MEH(KC_PGDN)  ,MEH(KC_PGUP)  ,MEH(KC_END)                          ,KC_TRNS     ,KC_TRNS                                  ,KC_TRNS       ,KC_TRNS    ,KC_TRNS    ,KC_TRNS
+                                                                                     ,KC_TRNS  ,KC_TRNS    ,QK_BOOT     ,KC_TRNS ,KC_TRNS ,KC_0
             ),
 };
 
@@ -82,17 +83,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 // Process the matrix state before it's used
 bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-    // if (record->event.pressed == 1) {
-    //     counter = counter + 1;
-    //     uprintf("%2u: | kc: 0x%04X, col: %2u, row: %2u, pressed: %u, \n", counter, keycode, record->event.key.col, record->event.key.row, record->event.pressed);
-    // };
     uint8_t row = record->event.key.row;
     uint8_t col = record->event.key.col;
 
-    if ((matrix_is_on(row+1,col) && (matrix_is_on(row, col))) && (matrix_is_on(row,col+1) && (matrix_is_on(row, col))) && (matrix_is_on(row,col) && (matrix_is_on(row, col+1)))){
+    if ((matrix_is_on(row+1,col) && matrix_is_on(row,col+1) && matrix_is_on(row, col+1))){
         return false;  // Block this phantom column 0 key press
     }
-    if ((matrix_is_on(row,col) && (matrix_is_on(row, col+1))) && (matrix_is_on(row-1,col) && (matrix_is_on(row, col))) && (matrix_is_on(row,col) && (matrix_is_on(row, col+1)))){
+    if ((matrix_is_on(row, col+1) && matrix_is_on(row-1,col) && matrix_is_on(row, col+1))){
         return false;  // Block this phantom column 0 key press
     }
     return process_record_user(keycode, record);
