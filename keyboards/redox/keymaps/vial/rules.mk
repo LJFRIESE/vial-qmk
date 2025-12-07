@@ -1,3 +1,0 @@
-
-VIAL_ENABLE = yes
-
