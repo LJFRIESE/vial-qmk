@@ -27,3 +27,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 200
 #define PERMISSIVE_HOLD
 
+// #define QUANTUM_PAINTER_DISPLAY_TIMEOUT 0
+// #define QUANTUM_PAINTER_SUPPORTS_NATIVE_COLORS TRUE

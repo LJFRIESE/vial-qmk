@@ -10,8 +10,8 @@ VIAL_INSECURE = yes
 VIA_ENABLE = yes
 
 KEYCODE_STRING_ENABLE = no
-CONSOLE_ENABLE = no        # Console for debug
-COMMAND_ENABLE = no        # Commands for debug and configuration
+CONSOLE_ENABLE = yes        # Console for debug
+COMMAND_ENABLE = yes        # Commands for debug and configuration
 
 UNICODE_ENABLE = no
 OLED_DRIVER_ENABLE = no
@@ -21,6 +21,9 @@ BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
 BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
+
+# QUANTUM_PAINTER_ENABLE = yes
+# QUANTUM_PAINTER_DRIVERS += st7789_spi
 
 # project specific files
 CUSTOM_MATRIX = lite
