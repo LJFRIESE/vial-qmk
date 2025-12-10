@@ -23,26 +23,26 @@
 
 #define ONESHOT_TIMEOUT 500
 
-// #define SPI_DRIVER SPID0
-// #define SPI_SCK_PIN GP2
-// #define SPI_MOSI_PIN GP11
-// #define SPI_MISO_PIN GP20 // Unused
-//
-// /* LCD Configuration */
-// #define LCD_RST_PIN GP16
-// #define LCD_DC_PIN GP12
-// #define LCD_CS_PIN GP13
-// #define LCD_BLK_PIN GP7 // Unused in this configuration
-// #define LCD_SPI_DIVISOR 4
-// #define LCD_WAIT_TIME 150
-// #define LCD_ROTATION QP_ROTATION_0
-// #define LCD_OFFSET_X 0
-// #define LCD_OFFSET_Y 0
-//
-// #define LCD_WIDTH 280
-// #define LCD_HEIGHT 240
-// #define SPI_MODE 0
-// #define ST7789
+#define SPI_DRIVER SPID0
+#define SPI_SCK_PIN GP2
+#define SPI_MOSI_PIN GP11
+#define SPI_MISO_PIN GP20 // Unused
+
+/* LCD Configuration */
+#define LCD_RST_PIN GP16
+#define LCD_DC_PIN GP12
+#define LCD_CS_PIN GP13
+#define LCD_BLK_PIN GP7 // Unused in this configuration
+#define LCD_SPI_DIVISOR 4
+#define LCD_WAIT_TIME 150
+#define LCD_ROTATION QP_ROTATION_0
+#define LCD_OFFSET_X 0
+#define LCD_OFFSET_Y 0
+
+#define LCD_WIDTH 280
+#define LCD_HEIGHT 240
+#define SPI_MODE 0
+#define ST7789
 //#define LCD_INVERT_COLOR
 
 // #define MATRIX_HAS_GHOST // Not sure how to use this to fix my ghosting...

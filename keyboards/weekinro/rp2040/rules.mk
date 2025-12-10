@@ -22,8 +22,8 @@ BACKLIGHT_ENABLE = no       # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 
-# QUANTUM_PAINTER_ENABLE = yes
-# QUANTUM_PAINTER_DRIVERS += st7789_spi
+QUANTUM_PAINTER_ENABLE = yes
+QUANTUM_PAINTER_DRIVERS += st7789_spi
 
 # project specific files
 CUSTOM_MATRIX = lite
