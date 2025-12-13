@@ -27,17 +27,17 @@ static bool validate_driver_integrity(painter_driver_t *driver) {
 // Quantum Painter External API: qp_init
 
 bool qp_init(painter_device_t device, painter_rotation_t rotation) {
-    qp_dprintf("qp_init: entry\n");
+    uprintf("qp_init: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver) {
-        qp_dprintf("qp_init: fail (pointer to NULL)\n");
+        uprintf("qp_init: fail (pointer to NULL)\n");
         return false;
     }
 
     driver->validate_ok = false;
     if (!validate_driver_integrity(driver)) {
-        qp_dprintf("Failed to validate driver integrity in qp_init\n");
+        uprintf("Failed to validate driver integrity in qp_init\n");
         return false;
     }
 
@@ -45,12 +45,12 @@ bool qp_init(painter_device_t device, painter_rotation_t rotation) {
 
     if (!qp_comms_init(device)) {
         driver->validate_ok = false;
-        qp_dprintf("qp_init: fail (could not init comms)\n");
+        uprintf("qp_init: fail (could not init comms)\n");
         return false;
     }
 
     if (!qp_comms_start(device)) {
-        qp_dprintf("qp_init: fail (could not start comms)\n");
+        uprintf("qp_init: fail (could not start comms)\n");
         return false;
     }
 
@@ -60,7 +60,7 @@ bool qp_init(painter_device_t device, painter_rotation_t rotation) {
     // Invoke init
     bool ret = driver->driver_vtable->init(device, rotation);
     qp_comms_stop(device);
-    qp_dprintf("qp_init: %s\n", ret ? "ok" : "fail");
+    uprintf("qp_init: %s\n", ret ? "ok" : "fail");
     return ret;
 }
 
@@ -68,21 +68,21 @@ bool qp_init(painter_device_t device, painter_rotation_t rotation) {
 // Quantum Painter External API: qp_power
 
 bool qp_power(painter_device_t device, bool power_on) {
-    qp_dprintf("qp_power: entry\n");
+    uprintf("qp_power: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_power: fail (validation_ok == false)\n");
+        uprintf("qp_power: fail (validation_ok == false)\n");
         return false;
     }
 
     if (!qp_comms_start(device)) {
-        qp_dprintf("qp_power: fail (could not start comms)\n");
+        uprintf("qp_power: fail (could not start comms)\n");
         return false;
     }
 
     bool ret = driver->driver_vtable->power(device, power_on);
     qp_comms_stop(device);
-    qp_dprintf("qp_power: %s\n", ret ? "ok" : "fail");
+    uprintf("qp_power: %s\n", ret ? "ok" : "fail");
     return ret;
 }
 
@@ -90,21 +90,21 @@ bool qp_power(painter_device_t device, bool power_on) {
 // Quantum Painter External API: qp_clear
 
 bool qp_clear(painter_device_t device) {
-    qp_dprintf("qp_clear: entry\n");
+    uprintf("qp_clear: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_clear: fail (validation_ok == false)\n");
+        uprintf("qp_clear: fail (validation_ok == false)\n");
         return false;
     }
 
     if (!qp_comms_start(device)) {
-        qp_dprintf("qp_clear: fail (could not start comms)\n");
+        uprintf("qp_clear: fail (could not start comms)\n");
         return false;
     }
 
     bool ret = driver->driver_vtable->clear(device);
     qp_comms_stop(device);
-    qp_dprintf("qp_clear: %s\n", ret ? "ok" : "fail");
+    uprintf("qp_clear: %s\n", ret ? "ok" : "fail");
     return ret;
 }
 
@@ -115,12 +115,12 @@ bool qp_flush(painter_device_t device) {
     qp_dprintf("qp_flush: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_flush: fail (validation_ok == false)\n");
+        uprintf("qp_flush: fail (validation_ok == false)\n");
         return false;
     }
 
     if (!qp_comms_start(device)) {
-        qp_dprintf("qp_flush: fail (could not start comms)\n");
+        uprintf("qp_flush: fail (could not start comms)\n");
         return false;
     }
 
@@ -134,11 +134,11 @@ bool qp_flush(painter_device_t device) {
 // Quantum Painter External API: qp_get_*
 
 uint16_t qp_get_width(painter_device_t device) {
-    qp_dprintf("qp_get_width: entry\n");
+    uprintf("qp_get_width: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_get_width: fail (invalid driver)\n");
+        uprintf("qp_get_width: fail (invalid driver)\n");
         return 0;
     }
 
@@ -155,16 +155,16 @@ uint16_t qp_get_width(painter_device_t device) {
             break;
     }
 
-    qp_dprintf("qp_get_width: ok\n");
+    uprintf("qp_get_width: ok\n");
     return width;
 }
 
 uint16_t qp_get_height(painter_device_t device) {
-    qp_dprintf("qp_get_height: entry\n");
+    uprintf("qp_get_height: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_get_height: fail (invalid driver)\n");
+        uprintf("qp_get_height: fail (invalid driver)\n");
         return 0;
     }
 
@@ -181,55 +181,55 @@ uint16_t qp_get_height(painter_device_t device) {
             break;
     }
 
-    qp_dprintf("qp_get_height: ok\n");
+    uprintf("qp_get_height: ok\n");
     return height;
 }
 
 painter_rotation_t qp_get_rotation(painter_device_t device) {
-    qp_dprintf("qp_get_rotation: entry\n");
+    uprintf("qp_get_rotation: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_get_rotation: fail (invalid driver)\n");
+        uprintf("qp_get_rotation: fail (invalid driver)\n");
         return QP_ROTATION_0;
     }
 
-    qp_dprintf("qp_get_rotation: ok\n");
+    uprintf("qp_get_rotation: ok\n");
     return driver->rotation;
 }
 
 uint16_t qp_get_offset_x(painter_device_t device) {
-    qp_dprintf("qp_get_offset_x: entry\n");
+    uprintf("qp_get_offset_x: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_get_offset_x: fail (invalid driver)\n");
+        uprintf("qp_get_offset_x: fail (invalid driver)\n");
         return 0;
     }
 
-    qp_dprintf("qp_get_offset_x: ok\n");
+    uprintf("qp_get_offset_x: ok\n");
     return driver->offset_x;
 }
 
 uint16_t qp_get_offset_y(painter_device_t device) {
-    qp_dprintf("qp_get_offset_y: entry\n");
+    uprintf("qp_get_offset_y: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_get_offset_y: fail (invalid driver)\n");
+        uprintf("qp_get_offset_y: fail (invalid driver)\n");
         return 0;
     }
 
-    qp_dprintf("qp_get_offset_y: ok\n");
+    uprintf("qp_get_offset_y: ok\n");
     return driver->offset_y;
 }
 
 void qp_get_geometry(painter_device_t device, uint16_t *width, uint16_t *height, painter_rotation_t *rotation, uint16_t *offset_x, uint16_t *offset_y) {
-    qp_dprintf("qp_geometry: entry\n");
+    uprintf("qp_geometry: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_geometry: fail (invalid driver)\n");
+        uprintf("qp_geometry: fail (invalid driver)\n");
         return;
     }
 
@@ -253,46 +253,46 @@ void qp_get_geometry(painter_device_t device, uint16_t *width, uint16_t *height,
         *offset_y = qp_get_offset_y(device);
     }
 
-    qp_dprintf("qp_get_geometry: ok\n");
+    uprintf("qp_get_geometry: ok\n");
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Quantum Painter External API: qp_set_viewport_offsets
 
 void qp_set_viewport_offsets(painter_device_t device, uint16_t offset_x, uint16_t offset_y) {
-    qp_dprintf("qp_set_viewport_offsets: entry\n");
+    uprintf("qp_set_viewport_offsets: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
 
     if (!driver) {
-        qp_dprintf("qp_set_viewport_offsets: fail (pointer to NULL)\n");
+        uprintf("qp_set_viewport_offsets: fail (pointer to NULL)\n");
         return;
     }
 
     driver->offset_x = offset_x;
     driver->offset_y = offset_y;
 
-    qp_dprintf("qp_set_viewport_offsets: ok\n");
+    uprintf("qp_set_viewport_offsets: ok\n");
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Quantum Painter External API: qp_viewport
 
 bool qp_viewport(painter_device_t device, uint16_t left, uint16_t top, uint16_t right, uint16_t bottom) {
-    qp_dprintf("qp_viewport: entry\n");
+    uprintf("qp_viewport: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_viewport: fail (validation_ok == false)\n");
+        uprintf("qp_viewport: fail (validation_ok == false)\n");
         return false;
     }
 
     if (!qp_comms_start(device)) {
-        qp_dprintf("qp_viewport: fail (could not start comms)\n");
+        uprintf("qp_viewport: fail (could not start comms)\n");
         return false;
     }
 
     // Set the viewport
     bool ret = driver->driver_vtable->viewport(device, left, top, right, bottom);
-    qp_dprintf("qp_viewport: %s\n", ret ? "ok" : "fail");
+    uprintf("qp_viewport: %s\n", ret ? "ok" : "fail");
     qp_comms_stop(device);
     return ret;
 }
@@ -301,20 +301,20 @@ bool qp_viewport(painter_device_t device, uint16_t left, uint16_t top, uint16_t 
 // Quantum Painter External API: qp_pixdata
 
 bool qp_pixdata(painter_device_t device, const void *pixel_data, uint32_t native_pixel_count) {
-    qp_dprintf("qp_pixdata: entry\n");
+    uprintf("qp_pixdata: entry\n");
     painter_driver_t *driver = (painter_driver_t *)device;
     if (!driver || !driver->validate_ok) {
-        qp_dprintf("qp_pixdata: fail (validation_ok == false)\n");
+        uprintf("qp_pixdata: fail (validation_ok == false)\n");
         return false;
     }
 
     if (!qp_comms_start(device)) {
-        qp_dprintf("qp_pixdata: fail (could not start comms)\n");
+        uprintf("qp_pixdata: fail (could not start comms)\n");
         return false;
     }
 
     bool ret = driver->driver_vtable->pixdata(device, pixel_data, native_pixel_count);
-    qp_dprintf("qp_pixdata: %s\n", ret ? "ok" : "fail");
+    uprintf("qp_pixdata: %s\n", ret ? "ok" : "fail");
     qp_comms_stop(device);
     return ret;
 }

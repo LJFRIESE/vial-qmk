@@ -1,3 +1,4 @@
+CONSOLE_ENABLE=yes
 ifndef VERBOSE
 .SILENT:
 endif
