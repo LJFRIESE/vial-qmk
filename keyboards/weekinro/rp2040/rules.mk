@@ -24,6 +24,7 @@ AUDIO_ENABLE = no           # Audio output
 
 QUANTUM_PAINTER_ENABLE = yes
 QUANTUM_PAINTER_DRIVERS += st7789_spi
+ST7789 = true
 
 # project specific files
 CUSTOM_MATRIX = lite

@@ -98,7 +98,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 #include "qp_st77xx_opcodes.h"
 #include "qp_comms.h"
 #include "color.h"
-#include "gfx/cat240x240.qgf.h"
+#include "gfx/cat280x240.qgf.h"
 
 painter_device_t lcd;
 
@@ -114,9 +114,9 @@ void keyboard_post_init_kb(void) {
     // Power on display, fill with white
 
     // // Some screens have inverted colors
-    qp_comms_start(lcd);
-    qp_comms_command(lcd, ST77XX_CMD_INVERT_ON);
-    qp_comms_stop(lcd);
+    // qp_comms_start(lcd);
+    // qp_comms_command(lcd, ST77XX_CMD_INVERT_ON);
+    // qp_comms_stop(lcd);
     //
     // Display offset
     qp_set_viewport_offsets(lcd, LCD_OFFSET_X, LCD_OFFSET_Y);
@@ -126,8 +126,8 @@ void keyboard_post_init_kb(void) {
     qp_rect(lcd, 0, 0, 40, 40, HSV_WHITE, 1);
 
     // Paint catpaste/Katten Paste
-    // painter_image_handle_t logo_image = qp_load_image_mem(gfx_cat);
-    // qp_drawimage(lcd, 0, 0, logo_image);
+    painter_image_handle_t logo_image = qp_load_image_mem(gfx_cat);
+    qp_drawimage(lcd, 0, 0, logo_image);
 
     keyboard_post_init_user();
 #ifdef CONSOLE_ENABLE
