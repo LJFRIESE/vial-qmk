@@ -11,24 +11,19 @@ TAP_DANCE_ENABLE = yes
 LTO_ENABLE = yes
 COMBO_ENABLE = yes
 MACRO_ENABLE = yes
-DYNAMIC_MACRO_ENABLE = yes
+DYNAMIC_MACRO_ENABLE = no
 KEY_OVERRIDE_ENABLE = no
+NKRO_ENABLE = no
+MOUSEKEY_ENABLE = no
+
 
 CAPS_WORD_ENABLE = yes
 
-AUDIO_DRIVER = pwm_hardware
-AUDIO_ENABLE = yes
+# AUDIO_DRIVER = pwm_hardware
+# AUDIO_ENABLE = yes
 
 VPATH += keyboards/gboards
 
 SRC += custom_keycodes.c
 SRC += capsword.c
 SRC += tapping.c
-
-# note that the order is important here
-# SRC += qmk-vim/src/process_func.c
-# SRC += qmk-vim/src/numbered_actions.c
-# SRC += qmk-vim/src/motions.c
-# SRC += qmk-vim/src/actions.c
-# SRC += qmk-vim/src/modes.c
-# SRC += qmk-vim/src/vim.c

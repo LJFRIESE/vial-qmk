@@ -7,9 +7,9 @@
         "layer_count": 6
     },
     "features": {
-        "audio": true,
+        "audio": false,
         "bootmagic": true,
-        "extrakey": true,
+        "extrakey": false,
         "mousekey": true,
         "encoder": true
     },

@@ -3,12 +3,12 @@
 #pragma once
 #define VIAL_KEYBOARD_UID {0x3D, 0x36, 0x94, 0xF9, 0x71, 0x35, 0x9D, 0x7E}
 
-#define AUDIO_INIT_DELAY
-#define AUDIO_PIN A10
-#define AUDIO_PWM_DRIVER PWMD1
-#define AUDIO_PWM_CHANNEL 3
-#define AUDIO_PWM_PAL_MODE 1
-
+// #define AUDIO_INIT_DELAY
+// #define AUDIO_PIN A10
+// #define AUDIO_PWM_DRIVER PWMD1
+// #define AUDIO_PWM_CHANNEL 3
+// #define AUDIO_PWM_PAL_MODE 1
+//
 // #define PITCH_STANDARD_A 216.0f
 // #define TEMPO_DEFAULT 100
 // #define STARTUP_SONG SONG(STARTUP_SOUND)
@@ -33,14 +33,3 @@
 #define SYMBOL_LAYER 3
 #define MISC_LAYER 4
 #define QWERTY_LAYER 5
-
-#define CUSTOM_MATRIX 1
-
-#define BETTER_VISUAL_MODE
-#define VIM_G_MOTIONS
-#define VIM_I_TEXT_OBJECTS
-#define VIM_A_TEXT_OBJECTS
-#define VIM_PASTE_BEFORE
-#define VIM_W_BEGINNING_OF_WORD
-#define ONESHOT_VIM
-

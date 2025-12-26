@@ -1,5 +1,3 @@
-#include "qp_internal.h"
-#include QMK_KEYBOARD_H
 #include "quantum.h"
 #include "keycodes.h"
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
@@ -93,44 +91,3 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
     return process_record_user(keycode, record);
 }
 
-#include "print.h"
-#include "qp.h"
-#include "qp_st77xx_opcodes.h"
-#include "qp_comms.h"
-#include "color.h"
-#include "gfx/cat280x240.qgf.h"
-
-painter_device_t lcd;
-
-void keyboard_post_init_kb(void) {
-    wait_ms(5000);
-
-#ifdef CONSOLE_ENABLE
-    uprintf("%s", "hi\n");
-#endif
-
-    lcd = qp_st7789_make_spi_device(LCD_HEIGHT, LCD_WIDTH, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, LCD_SPI_DIVISOR, SPI_MODE);
-    qp_init(lcd, 0);
-    // Power on display, fill with white
-
-    // // Some screens have inverted colors
-    // qp_comms_start(lcd);
-    // qp_comms_command(lcd, ST77XX_CMD_INVERT_ON);
-    // qp_comms_stop(lcd);
-    //
-    // Display offset
-    qp_set_viewport_offsets(lcd, LCD_OFFSET_X, LCD_OFFSET_Y);
-    qp_power(lcd, 1);
-
-    // Power on display, fill with white
-    qp_rect(lcd, 0, 0, 40, 40, HSV_WHITE, 1);
-
-    // Paint catpaste/Katten Paste
-    painter_image_handle_t logo_image = qp_load_image_mem(gfx_cat);
-    qp_drawimage(lcd, 0, 0, logo_image);
-
-    keyboard_post_init_user();
-#ifdef CONSOLE_ENABLE
-    uprintf("%s", "bye\n");
-#endif
-}
