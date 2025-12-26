@@ -1,0 +1,8 @@
+gnd
+vcc
+scl gpio10
+sda gpio11
+res gpio 12
+dc  gpio27
+cs  gpio9
+blk gpio20
